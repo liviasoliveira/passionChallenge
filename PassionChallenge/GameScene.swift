@@ -16,6 +16,13 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        if let thePlayer = childNode(withName: "Player") {
+            if let poComponent = thePlayer.entity?.component(ofType: PlayerControlComponent.self) {
+                poComponent.setupControls(camera: camera!, scene: self)
+            }
+            
+        }
+        
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
