@@ -44,11 +44,11 @@ class TouchControlInputNode: SKSpriteNode{
     
     func setupControls(size: CGSize){
         
-        addButton(button: buttonJump, position: CGPoint(x: -(size.width) / 3, y: -size.height / 4 + 50), name: "up", scale: 2.0)
+        addButton(button: buttonJump, position: CGPoint(x: -(size.width) / 3, y: -size.height / 4 + 50), name: "controlePulo", scale: 2.0)
         
-        addButton(button: buttonLeft, position: CGPoint(x: -(size.width / 3) - 50, y: -size.height / 4), name: "left", scale: 2.0)
+        addButton(button: buttonLeft, position: CGPoint(x: -(size.width / 3) - 50, y: -size.height / 4), name: "controleLeft", scale: 2.0)
         
-        addButton(button: buttonRight, position: CGPoint(x: -(size.width / 3) + 50, y: -size.height / 4), name: "right", scale: 2.0)
+        addButton(button: buttonRight, position: CGPoint(x: -(size.width / 3) + 50, y: -size.height / 4), name: "controleRight", scale: 2.0)
         
         addButton(button: buttonX, position: CGPoint(x: (size.width / 3), y: -size.height / 4 - 50), name: "X", scale: 0.40)
         
@@ -98,30 +98,70 @@ class TouchControlInputNode: SKSpriteNode{
             }
             
         }
-    
-//        override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
-//            for t in touches{
-//
-//                let location = t.location(in: parent!)
-//                let previousLocation = t.previousLocation(in: parent!)
-//
-//                for button in [buttonLeft, buttonRight, buttonJump, buttonA, buttonB, buttonX, buttonY]{
-//                    //if i get off the button where i was before
-//                    if button.contains(pressedButtons) && !button.contains(location){
-//                        let index != nil do {
-//                            pressedButtons.remove(at: index!)
-//                            if (self.InputDelegate != nil){
-//                                InputDelegate?.follow(command: command: <#String?#>"cancel \(String(describing: button.name!))*)
-                            
+        
+        func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
+            for t in touches{
+                
+                let location = t.location(in: parent!)
+                let previousLocation = t.previousLocation(in: parent!)
+                for button in [buttonLeft, buttonRight, buttonJump, buttonA] {
+                    if button.contains(location)  || button.contains(previousLocation) {
+                        let index = pressedButtons.firstIndex(of: button)
+                        if index != nil {
+                            pressedButtons.remove(at: index!)
+                            if InputDelegate != nil {
+                                InputDelegate?.follow(command: "cancel \(String(describing: button.name))")
                             }
                         }
-//                    }
-//
-//                }
-//            }
-//        }
-//
-//    }
-//
-//}
+                    }
+                        
+                    else if !button.contains(previousLocation) && button.contains(location) && pressedButtons.firstIndex(of: button) == nil {
+                        pressedButtons.append(button)
+                        if (InputDelegate != nil) {
+                            InputDelegate?.follow(command: button.name!)
+                        }
+                    }
+                    
+                    if(pressedButtons.firstIndex(of: button) != nil){
+                        button.alpha = alphaPressed
+                    } else{
+                        button.alpha = alphaUnpressed
+                        
+                    }
+                }
+            }
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+    }
+    
+    func touchUp(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: parent!)
+            let previousLocation = touch.previousLocation(in: parent!)
+            for button in [buttonLeft, buttonRight, buttonJump, buttonA] {
+                if button.contains(location)  || button.contains(previousLocation) {
+                    let index = pressedButtons.firstIndex(of: button)
+                    if index != nil {
+                        pressedButtons.remove(at: index!)
+                        if InputDelegate != nil {
+                            InputDelegate?.follow(command: "stop \(String(describing: button.name))")
+                        }
+                    }
+                }
+                
+                if(pressedButtons.firstIndex(of: button) != nil){
+                    button.alpha = alphaPressed
+                } else{
+                    button.alpha = alphaUnpressed
+                    
+                }
+            }
+        }
+    }
+}
 
