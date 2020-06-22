@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class PlayerControlComponent: GKComponent, ControlnputDelegate {
+class PlayerControlComponent: GKComponent, ControlInputDelegate {
     
     var touchControlNode : TouchControlInputNode? = nil
     
@@ -18,7 +18,6 @@ class PlayerControlComponent: GKComponent, ControlnputDelegate {
         touchControlNode = TouchControlInputNode(frame: scene.frame)
         touchControlNode?.InputDelegate = self
         touchControlNode?.position = CGPoint.zero
-        
         
         camera.addChild(touchControlNode!)
         
