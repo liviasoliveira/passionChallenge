@@ -6,7 +6,6 @@
 //  Copyright © 2020 Lívia Silva Oliveira. All rights reserved.
 //
 
-import Foundation
 import GameplayKit
 import SpriteKit
 
@@ -24,14 +23,13 @@ class CharacterNode: SKSpriteNode{
     
     var walkSpeed: CGFloat = 2
     
-    //    var stateMachine: GKComponent?
-    //
-    //
-    //    func setUpStateMachine(){
-    //        let normalState = NormalState(with: self)
-    //        stateMachine = GKStateMachine(states: [normalState])
-    //        stateMachine?.enter(NormalState.self)
-    //    }
-    //}
+        var stateMachine: GKStateMachine?
     
-}
+        func setUpStateMachine(){
+            let normalState = NormalState(with: self)
+            stateMachine = GKStateMachine(states: [normalState])
+            stateMachine?.enter(NormalState.self)
+        }
+    }
+    
+

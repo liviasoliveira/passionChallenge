@@ -12,7 +12,7 @@ import GameplayKit
 class PlayerControlComponent: GKComponent, ControlInputDelegate {
     
     var touchControlNode : TouchControlInputNode? = nil
-    
+    var cNode: CharacterNode?
     func setupControls (camera: SKCameraNode, scene: SKScene){
         
         touchControlNode = TouchControlInputNode(frame: scene.frame)
@@ -21,12 +21,36 @@ class PlayerControlComponent: GKComponent, ControlInputDelegate {
         
         camera.addChild(touchControlNode!)
         
+        if (cNode == nil) {
+            if let nodeComponent = self.entity?.component(ofType: GKSKNodeComponent.self) {
+                cNode = nodeComponent.node as? CharacterNode
+            }
+        }
+        
     }
     
     func follow(command: String?){
         
-        print("command: \(String(describing: command))")
+        if (cNode != nil) {
+            switch(command!) {
+            case("left"):
+                cNode?.left = true
+            case "cancel left", "stop left":
+                cNode?.left = false
+            case "right":
+                cNode?.right = true
+            case "cancel right", "stop right":
+                cNode?.right = false
+            default: print("command: \(String(describing: command))")
+                
+            }
+        }
     }
     
+    override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        
+        cNode?.stateMachine?.update(deltaTime: seconds)
+    }
     
 }
