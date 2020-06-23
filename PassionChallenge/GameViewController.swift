@@ -48,17 +48,17 @@ class GameViewController: UIViewController {
         return true
     }
 }
-class PastelScene: SKScene{
-    override func didMove(to view: SKView) {
-        let backgroundPastel = SKSpriteNode(imageNamed: <#T##String#>)
-        backgroundPastel.position = CGPoint()
-    }
-}
+//class PastelScene: SKScene{
+//    override func didMove(to view: SKView) {
+//        let backgroundPastel = SKSpriteNode(imageNamed: <#T##String#>)
+//        backgroundPastel.position = CGPoint()
+//    }
+//}
 
-class NeonScene: SKScene {
-    override func didMove(to view: SKView) {
-        let backgroundNeon = SKSpriteNode(imageNamed: <#T##String#>)
-        backgroundNeon.position = CGPoint()
-    }
-}
+//class NeonScene: SKScene {
+//    override func didMove(to view: SKView) {
+//        let backgroundNeon = SKSpriteNode(imageNamed: <#T##String#>)
+//        backgroundNeon.position = CGPoint()
+//    }
+//}
 let navigation = UINavigationController(rootViewController: MenuViewController())
