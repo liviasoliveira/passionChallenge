@@ -22,10 +22,10 @@ class CharacterNode: SKSpriteNode{
     var stateMachine: GKComponent?
     
     
-    func setUpStateMachine(){
-        let normalState = NormalState(with: self)
-        stateMachine = GKStateMachine(states: [normalState])
-        stateMachine?.enter(NormalState.self)
-    }
+//    func setUpStateMachine(){
+//        let normalState = NormalState(with: self)
+//        stateMachine = GKStateMachine(states: [normalState])
+//        stateMachine?.enter(NormalState.self)
+//    }
 }
 
