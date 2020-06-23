@@ -6,7 +6,6 @@
 //  Copyright © 2020 Lívia Silva Oliveira. All rights reserved.
 //
 
-import Foundation
 import GameplayKit
 
 class NormalState: GKState{
@@ -20,9 +19,9 @@ class NormalState: GKState{
     
     override func update(deltaTime seconds: TimeInterval) {
         if cNode.left {
-            cNode.hSpeed = cNode.walkSpeed
-        } else if cNode.right{
             cNode.hSpeed = -cNode.walkSpeed
+        } else if cNode.right{
+            cNode.hSpeed = cNode.walkSpeed
         } else{
            cNode.hSpeed = 0.0
         }

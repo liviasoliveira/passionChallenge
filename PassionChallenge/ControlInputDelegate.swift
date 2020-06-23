@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ControlnputDelegate : class{
+protocol ControlInputDelegate : class {
     func follow(command: String?)
 }

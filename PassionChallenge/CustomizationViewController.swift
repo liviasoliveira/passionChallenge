@@ -16,7 +16,7 @@ class CustomizationViewController: UIViewController {
           
           let confirmButton = UIButton(frame: CGRect(x: 60, y: 400, width: 250, height: 100))
           confirmButton.setTitle("Exibir GameViewController", for: .normal)
-          confirmButton.addTarget(nil, action: #selector(tapplayButton), for: .touchUpInside)
+          //confirmButton.addTarget(nil, action: #selector(tapplayButton), for: .touchUpInside)
           
           view.addSubview(confirmButton)
           self.view = view
