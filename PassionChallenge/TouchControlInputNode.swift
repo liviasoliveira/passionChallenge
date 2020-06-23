@@ -94,7 +94,6 @@ class TouchControlInputNode: SKSpriteNode{
                     button.alpha = alphaUnpressed
                     
                     
-                    
                 }
                 
             }
@@ -112,7 +111,7 @@ class TouchControlInputNode: SKSpriteNode{
                         if index != nil {
                             pressedButtons.remove(at: index!)
                             if InputDelegate != nil {
-                                InputDelegate?.follow(command: "cancel \(String(describing: button.name))")
+                                InputDelegate?.follow(command: "cancel \(button.name!))")
                             }
                         }
                     }
@@ -151,7 +150,7 @@ class TouchControlInputNode: SKSpriteNode{
                     if index != nil {
                         pressedButtons.remove(at: index!)
                         if InputDelegate != nil {
-                            InputDelegate?.follow(command: "stop \(String(describing: button.name))")
+                            InputDelegate?.follow(command: "stop \(button.name!)")
                         }
                     }
                 }

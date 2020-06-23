@@ -21,18 +21,14 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         if let thePlayer = childNode(withName: "Player") {
-            (thePlayer as! CharacterNode).setUpStateMachine()
-            if let pcComponent = thePlayer.entity?.component(ofType: PlayerControlComponent.self) {
-                pcComponent.setupControls(camera: camera!, scene: self)
-            }
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlayer)
             let component: PlayerControlComponent = PlayerControlComponent()
-            component.setupControls(camera: camera!, scene: self)
-            entity.addComponent(nodeComponent)
             entity.addComponent(component)
-            entity.addComponent(GKSKNodeComponent(node: thePlayer))
+            entity.addComponent(nodeComponent)
             entities.append(entity)
+            component.setupControls(camera: camera!, scene: self)
+            (thePlayer as! CharacterNode).setUpStateMachine()
     
         }
         

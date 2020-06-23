@@ -33,13 +33,13 @@ class PlayerControlComponent: GKComponent, ControlInputDelegate {
         
         if (cNode != nil) {
             switch(command!) {
-            case("left"):
+            case("controleLeft"):
                 cNode?.left = true
-            case "cancel left", "stop left":
+            case "cancel controleLeft", "stop controleLeft":
                 cNode?.left = false
-            case "right":
+            case "controleRight":
                 cNode?.right = true
-            case "cancel right", "stop right":
+            case "cancel controleRight", "stop controleRight":
                 cNode?.right = false
             default: print("command: \(String(describing: command))")
                 

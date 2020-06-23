@@ -21,7 +21,7 @@ class NormalState: GKState{
         if cNode.left {
             cNode.hSpeed = -cNode.walkSpeed
         } else if cNode.right{
-            cNode.hSpeed = -cNode.walkSpeed
+            cNode.hSpeed = cNode.walkSpeed
         } else{
            cNode.hSpeed = 0.0
         }
