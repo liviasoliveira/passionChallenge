@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String: GKGraph]()
     var lastUpdateTime: TimeInterval = 0
+    var physicsDelegate = PhysicsDetection()
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -51,6 +52,7 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        self.physicsWorld.contactDelegate = physicsDelegate
     }
     
     

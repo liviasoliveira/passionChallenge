@@ -2,8 +2,8 @@ import SpriteKit
 import GameplayKit
 
 struct ColliderType {
-    static let PLAYER : UInt32 = 0x1 << 1
-    static let GROUND : UInt32 = 0x1 << 2
+    static let PLAYER : UInt32 = 0x1 << 0
+    static let GROUND : UInt32 = 0x1 << 1
 }
 
 class PhysicsDetection : NSObject, SKPhysicsContactDelegate {

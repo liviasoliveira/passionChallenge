@@ -41,6 +41,10 @@ class PlayerControlComponent: GKComponent, ControlInputDelegate {
                 cNode?.right = true
             case "cancel controleRight", "stop controleRight":
                 cNode?.right = false
+            case "controlePulo":
+                cNode?.jump = true
+            case "cancel controlePulo", "stop controlePulo":
+                cNode?.jump = false
             default: print("command: \(String(describing: command))")
                 
             }
