@@ -21,6 +21,16 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        if let animationWalk = childNode(withName: "Player") {
+            let entity = GKEntity()
+            let nodeComponent: GKSKNodeComponent = GKSKNodeComponent(node:animationWalk)
+            let component: AnimationComponent = AnimationComponent()
+            entity.addComponent(component)
+            entity.addComponent(nodeComponent)
+            entities.append(entity)
+        }
+
+        
         if let thePlayer = childNode(withName: "Player") {
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlayer)
