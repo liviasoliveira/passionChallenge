@@ -24,6 +24,7 @@
 		762494A1249BE7B800D40AA8 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */; };
 		762494A3249BEE2800D40AA8 /* TouchControlInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */; };
 		762494A5249C4CBF00D40AA8 /* ControlInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */; };
+		F7CD8D1F24A543EA00CF0759 /* ParallaxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlComponent.swift; sourceTree = "<group>"; };
 		762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
 		762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputDelegate.swift; sourceTree = "<group>"; };
+		F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */,
 				104394F724A53050005237DF /* AnimationComponent.swift */,
+				F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7624949F249BCE2D00D40AA8 /* NormalState.swift in Sources */,
+				F7CD8D1F24A543EA00CF0759 /* ParallaxComponent.swift in Sources */,
 				762494A5249C4CBF00D40AA8 /* ControlInputDelegate.swift in Sources */,
 				107DE187249D4A9300E8EBFA /* PhysicsDetection.swift in Sources */,
 				762494A3249BEE2800D40AA8 /* TouchControlInputNode.swift in Sources */,
