@@ -36,7 +36,7 @@ class NormalState: GKState{
             cNode.xScale = -1.0
             cNode.hSpeed = approach(start: cNode.hSpeed, end: -cNode.walkSpeed, shift: aSpeed)
         } else if cNode.right{
-            cNode.xScale = 1.0
+            cNode.facing = 1.0
             cNode.xScale = 1.0
             cNode.hSpeed = approach(start: cNode.hSpeed, end: cNode.walkSpeed, shift: aSpeed)
         } else{

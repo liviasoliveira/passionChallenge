@@ -24,6 +24,7 @@
 		762494A1249BE7B800D40AA8 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */; };
 		762494A3249BEE2800D40AA8 /* TouchControlInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */; };
 		762494A5249C4CBF00D40AA8 /* ControlInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */; };
+		F761858824AA33FC00A051D8 /* Plataformas.sks in Resources */ = {isa = PBXBuildFile; fileRef = F761858724AA33FC00A051D8 /* Plataformas.sks */; };
 		F7CD8D1F24A543EA00CF0759 /* ParallaxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlComponent.swift; sourceTree = "<group>"; };
 		762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
 		762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputDelegate.swift; sourceTree = "<group>"; };
+		F761858724AA33FC00A051D8 /* Plataformas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Plataformas.sks; sourceTree = "<group>"; };
 		F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				76249496249BC9CB00D40AA8 /* Info.plist */,
 				7624949C249BCC6200D40AA8 /* CharacterNode.swift */,
 				107DE186249D4A9300E8EBFA /* PhysicsDetection.swift */,
+				F761858724AA33FC00A051D8 /* Plataformas.sks */,
 			);
 			path = PassionChallenge;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F761858824AA33FC00A051D8 /* Plataformas.sks in Resources */,
 				76249490249BC9C900D40AA8 /* Main.storyboard in Resources */,
 				76249487249BC9C900D40AA8 /* GameScene.sks in Resources */,
 				76249492249BC9CB00D40AA8 /* Assets.xcassets in Resources */,
@@ -363,10 +367,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.PassionChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Odaras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,10 +385,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.PassionChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Odaras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

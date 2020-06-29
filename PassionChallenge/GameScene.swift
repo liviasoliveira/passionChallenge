@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var graphs = [String: GKGraph]()
     var lastUpdateTime: TimeInterval = 0
     var physicsDelegate = PhysicsDetection()
+    var player: CharacterNode?
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -29,7 +30,7 @@ class GameScene: SKScene {
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:theNuvem)
             let component: ParallaxComponent = ParallaxComponent()
-            component.layer = 1
+            component.layer = 7
             entity.addComponent(component)
             entity.addComponent(nodeComponent)
             entities.append(entity)
@@ -39,7 +40,7 @@ class GameScene: SKScene {
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePredios)
             let component: ParallaxComponent = ParallaxComponent()
-            component.layer = 1
+            component.layer = 5
             entity.addComponent(component)
             entity.addComponent(nodeComponent)
             entities.append(entity)
@@ -49,7 +50,7 @@ class GameScene: SKScene {
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlantas)
             let component: ParallaxComponent = ParallaxComponent()
-            component.layer = 1
+            component.layer = 3
             entity.addComponent(component)
             entity.addComponent(nodeComponent)
             entities.append(entity)
@@ -61,7 +62,7 @@ class GameScene: SKScene {
             parallaxComponentSystem?.addComponent(foundIn: entity)
         }
         
-        for component in (parallaxComponentSystem?.components)!{
+        for component in (parallaxComponentSystem?.components)! {
             component.prepareWith(camera: camera)
         }
         
@@ -78,6 +79,12 @@ class GameScene: SKScene {
         
         
         if let thePlayer = childNode(withName: "Player") {
+            player = thePlayer as? CharacterNode
+            if (player != nil) {
+                player?.setUpStateMachine()
+               player?.creatPhysic()
+
+            }
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlayer)
             let component: PlayerControlComponent = PlayerControlComponent()
@@ -85,9 +92,8 @@ class GameScene: SKScene {
             entity.addComponent(nodeComponent)
             entities.append(entity)
             component.setupControls(camera: camera!, scene: self)
-            (thePlayer as! CharacterNode).setUpStateMachine()
-            
         }
+        
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -108,9 +114,60 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
+        if let tilemap = childNode(withName: "Plataformas") as? SKTileMapNode {
+            giveTileMapPhysicsBody(map: tilemap)
+        }
+        
         self.physicsWorld.contactDelegate = physicsDelegate
     }
     
+    //TileMap
+    func giveTileMapPhysicsBody(map: SKTileMapNode) {
+        let tileMap = map
+        
+        let tileSize = tileMap.tileSize
+        let halfWidth = CGFloat(tileMap.numberOfColumns) / 2.0 * tileSize.width
+        let halfHeight = CGFloat(tileMap.numberOfRows) / 2.0 * tileSize.height
+        
+        for col in 0..<tileMap.numberOfRows{
+            for row in 0..<tileMap.numberOfRows{
+                if let tileDefinition = tileMap.tileDefinition(atColumn: col, row: row) {
+                    let isEdgeTile = tileDefinition.userData?["Add Body"] as? Int
+                    if (isEdgeTile != 0) {
+                        let tileArray = tileDefinition.textures
+                        let tileTexture = tileArray[0]
+                        let x = CGFloat(col) * tileSize.width - halfWidth + (tileSize.width/2)
+                        let y = CGFloat(row) * tileSize.height - halfHeight + (tileSize.height/2)
+                        _ = CGRect(x: 0, y: 0, width: tileSize.width, height: tileSize.height)
+                        let tileNode = SKNode()
+                        
+                        tileNode.position = CGPoint(x: x, y: y)
+                        tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                        tileNode.physicsBody?.linearDamping = 0
+                        tileNode.physicsBody?.affectedByGravity = false
+                        tileNode.physicsBody?.allowsRotation = false
+                        tileNode.physicsBody?.restitution = 0
+                        tileNode.physicsBody?.isDynamic = false
+                        tileNode.physicsBody?.friction = 20.0
+                        tileNode.physicsBody?.mass = 30.0
+                        tileNode.physicsBody?.contactTestBitMask = 0
+                        tileNode.physicsBody?.fieldBitMask = 0
+                        tileNode.physicsBody?.collisionBitMask = 0
+                        
+                        if (isEdgeTile == 1) {
+                            tileNode.physicsBody?.restitution = 0.0
+                            tileNode.physicsBody?.contactTestBitMask = ColliderType.PLAYER
+                        }
+                        
+                        tileNode.physicsBody?.categoryBitMask = ColliderType.GROUND
+                        
+                        tileMap.addChild(tileNode)
+                    }
+                }
+            }
+        }
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -156,6 +213,13 @@ class GameScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    func centerOnNode(node: SKNode) {
+        self.camera!.run(SKAction.move(to: CGPoint(x: node.position.x, y: 0), duration: 0.2))
+    }
+    
+    override func didFinishUpdate() {
+        centerOnNode(node: player!)
+    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -165,6 +229,8 @@ class GameScene: SKScene {
         }
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
+        // Update Parallax
+        parallaxComponentSystem?.update(deltaTime: dt)
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)

@@ -18,7 +18,7 @@ class CharacterNode: SKSpriteNode{
     var landed = false
     var grounded = false
     
-    var maxJump: CGFloat = 40.0
+    var maxJump: CGFloat = 100.0
     
     var airAccel: CGFloat = 0.1
     var airDecel: CGFloat = 0.0
@@ -29,7 +29,7 @@ class CharacterNode: SKSpriteNode{
     
     var hSpeed: CGFloat = 0.0
     
-    var walkSpeed: CGFloat = 2
+    var walkSpeed: CGFloat = 5
     
         var stateMachine: GKStateMachine?
     
@@ -38,6 +38,17 @@ class CharacterNode: SKSpriteNode{
             stateMachine = GKStateMachine(states: [normalState])
             stateMachine?.enter(NormalState.self)
         }
+    
+    func creatPhysic() {
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 35, height: 100), center: CGPoint(x: 0, y: -10))
+        physicsBody?.affectedByGravity = true
+        physicsBody?.allowsRotation = false
+        physicsBody?.restitution = 0.0
+        physicsBody?.friction = 0.0
+        physicsBody?.categoryBitMask = ColliderType.PLAYER
+        physicsBody?.collisionBitMask = ColliderType.GROUND
+    }
+    
     }
     
 
