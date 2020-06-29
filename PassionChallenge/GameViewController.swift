@@ -12,29 +12,38 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "GameScene") {
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    view.ignoresSiblingOrder = true
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
-            }
-        }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let menuScene = MenuScene()
+        let skView = self.view as! SKView
+        skView.ignoresSiblingOrder = true
+        menuScene.size = view.bounds.size
+        skView.presentScene(menuScene)
+        
     }
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
+//        // including entities and graphs.
+//        if let scene = GKScene(fileNamed: "MenuViewController") {
+//            // Get the SKScene from the loaded GKScene
+//            if let sceneNode = scene.rootNode as! MenuScene? {
+//                // Copy gameplay related content over to the scene
+//               // sceneNode.entities = scene.entities
+//                //sceneNode.graphs = scene.graphs
+//                // Set the scale mode to scale to fit the window
+//                sceneNode.scaleMode = .aspectFill
+//                // Present the scene
+//                if let view = self.view as! SKView? {
+//                    view.presentScene(sceneNode)
+//                    view.ignoresSiblingOrder = true
+//                    view.showsFPS = true
+//                    view.showsNodeCount = true
+//                }
+//            }
+//        }
+//    }
     override var shouldAutorotate: Bool {
         return true
     }
@@ -51,17 +60,3 @@ class GameViewController: UIViewController {
         return true
     }
 }
-//class PastelScene: SKScene{
-//    override func didMove(to view: SKView) {
-//        let backgroundPastel = SKSpriteNode(imageNamed: <#T##String#>)
-//        backgroundPastel.position = CGPoint()
-//    }
-//}
-
-//class NeonScene: SKScene {
-//    override func didMove(to view: SKView) {
-//        let backgroundNeon = SKSpriteNode(imageNamed: <#T##String#>)
-//        backgroundNeon.position = CGPoint()
-//    }
-//}
-let navigation = UINavigationController(rootViewController: MenuViewController())
