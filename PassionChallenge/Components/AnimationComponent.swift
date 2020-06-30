@@ -39,6 +39,7 @@ class AnimationComponent: GKComponent {
                     }
                 }else{
                     if (cNode?.action(forKey: "idle") == nil) {
+                        cNode?.removeAllActions()
                         cNode?.run(idleAnimation!, withKey: "idle")
                     }
                 }

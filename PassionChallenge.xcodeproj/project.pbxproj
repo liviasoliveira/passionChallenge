@@ -24,6 +24,7 @@
 		762494A1249BE7B800D40AA8 /* PlayerControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */; };
 		762494A3249BEE2800D40AA8 /* TouchControlInputNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */; };
 		762494A5249C4CBF00D40AA8 /* ControlInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */; };
+		F70B26A924AB7BF900210850 /* Plataforma.sks in Resources */ = {isa = PBXBuildFile; fileRef = F70B26A824AB7BF900210850 /* Plataforma.sks */; };
 		F7CD8D1F24A543EA00CF0759 /* ParallaxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		762494A0249BE7B800D40AA8 /* PlayerControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlComponent.swift; sourceTree = "<group>"; };
 		762494A2249BEE2800D40AA8 /* TouchControlInputNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchControlInputNode.swift; sourceTree = "<group>"; };
 		762494A4249C4CBF00D40AA8 /* ControlInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputDelegate.swift; sourceTree = "<group>"; };
+		F70B26A824AB7BF900210850 /* Plataforma.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Plataforma.sks; sourceTree = "<group>"; };
 		F7CD8D1E24A543EA00CF0759 /* ParallaxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 				76249496249BC9CB00D40AA8 /* Info.plist */,
 				7624949C249BCC6200D40AA8 /* CharacterNode.swift */,
 				107DE186249D4A9300E8EBFA /* PhysicsDetection.swift */,
+				F70B26A824AB7BF900210850 /* Plataforma.sks */,
 			);
 			path = PassionChallenge;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				76249487249BC9C900D40AA8 /* GameScene.sks in Resources */,
 				76249492249BC9CB00D40AA8 /* Assets.xcassets in Resources */,
 				76249495249BC9CB00D40AA8 /* LaunchScreen.storyboard in Resources */,
+				F70B26A924AB7BF900210850 /* Plataforma.sks in Resources */,
 				104394F524A52FA5005237DF /* PreviewScene.sks in Resources */,
 				104394F024A4E0FA005237DF /* PlayerActions.sks in Resources */,
 				76249489249BC9C900D40AA8 /* Actions.sks in Resources */,
@@ -363,10 +367,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Odaras;
-				PRODUCT_NAME = Odaras;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,10 +386,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Odaras;
-				PRODUCT_NAME = Odaras;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
