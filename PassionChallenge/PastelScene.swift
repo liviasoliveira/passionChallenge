@@ -14,11 +14,68 @@ class PastelScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String: GKGraph]()
     var lastUpdateTime: TimeInterval = 0
+    var physicsDelegate = PhysicsDetection()
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    //variável para o sistema parallax
+    var parallaxComponentSystem: GKComponentSystem<ParallaxComponent>?
+    
     override func didMove(to view: SKView) {
+        
+        //Parralax
+        if let theNuvem = childNode(withName: "Nuvem") {
+            let entity = GKEntity()
+            let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:theNuvem)
+            let component: ParallaxComponent = ParallaxComponent()
+            component.layer = 1
+            entity.addComponent(component)
+            entity.addComponent(nodeComponent)
+            entities.append(entity)
+        }
+        
+        if let thePredios = childNode(withName: "Predio") {
+            let entity = GKEntity()
+            let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePredios)
+            let component: ParallaxComponent = ParallaxComponent()
+            component.layer = 1
+            entity.addComponent(component)
+            entity.addComponent(nodeComponent)
+            entities.append(entity)
+        }
+        
+        if let thePlantas = childNode(withName: "Planta") {
+            let entity = GKEntity()
+            let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlantas)
+            let component: ParallaxComponent = ParallaxComponent()
+            component.layer = 1
+            entity.addComponent(component)
+            entity.addComponent(nodeComponent)
+            entities.append(entity)
+        }
+        
+        
+        parallaxComponentSystem = GKComponentSystem.init(componentClass: ParallaxComponent.self)
+        for entity in self.entities {
+            parallaxComponentSystem?.addComponent(foundIn: entity)
+        }
+        
+        for component in (parallaxComponentSystem?.components)!{
+            component.prepareWith(camera: camera)
+        }
+        
+        
+        
+        if let animationWalk = childNode(withName: "Player") {
+            let entity = GKEntity()
+            let nodeComponent: GKSKNodeComponent = GKSKNodeComponent(node:animationWalk)
+            let component: AnimationComponent = AnimationComponent()
+            entity.addComponent(component)
+            entity.addComponent(nodeComponent)
+            entities.append(entity)
+        }
+        
         
         if let thePlayer = childNode(withName: "Player") {
             let entity = GKEntity()
@@ -29,7 +86,7 @@ class PastelScene: SKScene {
             entities.append(entity)
             component.setupControls(camera: camera!, scene: self)
             (thePlayer as! CharacterNode).setUpStateMachine()
-    
+            
         }
         
         // Get label node from scene and store it for use later
@@ -51,6 +108,7 @@ class PastelScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        self.physicsWorld.contactDelegate = physicsDelegate
     }
     
     
