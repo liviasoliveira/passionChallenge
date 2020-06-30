@@ -28,9 +28,9 @@ class GameViewController: UIViewController {
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
                     view.ignoresSiblingOrder = true
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                    view.showsPhysics = true
+//                    view.showsFPS = true
+//                    view.showsNodeCount = true
+//                    view.showsPhysics = true
                 }
             }
         }
@@ -42,7 +42,8 @@ class GameViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .landscape
+            
         } else {
             return .all
         }

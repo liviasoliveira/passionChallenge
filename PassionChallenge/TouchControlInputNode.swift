@@ -12,14 +12,14 @@ import SpriteKit
 class TouchControlInputNode: SKSpriteNode{
     
     var alphaUnpressed : CGFloat = 0.5
-    var alphaPressed : CGFloat = 0.9
+    var alphaPressed : CGFloat = 0.8
     
     var pressedButtons = [SKSpriteNode]()
     
-    let buttonRight = SKSpriteNode(imageNamed: "controleRight")
-    let buttonLeft = SKSpriteNode(imageNamed: "controleLeft")
-    let buttonJump = SKSpriteNode(imageNamed: "controlePulo")
-    let background = SKSpriteNode(imageNamed: "controle")
+    let buttonRight = SKSpriteNode(imageNamed: "BRight")
+    let buttonLeft = SKSpriteNode(imageNamed: "BLeft")
+    let buttonJump = SKSpriteNode(imageNamed: "BJump")
+//    let background = SKSpriteNode(imageNamed: "controle")
     
 //    let buttonA = SKSpriteNode(texture: SKTexture(imageNamed: "controleA"))
 //    let buttonB = SKSpriteNode(texture: SKTexture(imageNamed: "controleB"))
@@ -44,13 +44,13 @@ class TouchControlInputNode: SKSpriteNode{
     
     func setupControls(size: CGSize){
         
-        addButton(button: buttonJump, position: CGPoint(x: (size.width) / 2.5, y: -size.height / 7 - 50), name: "controlePulo", scale: 2.5)
+        addButton(button: buttonJump, position: CGPoint(x: 650, y: -298), name: "controlePulo", scale: 1.0)
         
-        addButton(button: buttonLeft, position: CGPoint(x: -(size.width / 2.5) - 50, y: -size.height / 2.5), name: "controleLeft", scale: 3.0)
+        addButton(button: buttonLeft, position: CGPoint(x: -670, y: -302), name: "controleLeft", scale: 0.9)
         
-        addButton(button: buttonRight, position: CGPoint(x: -(size.width / 2.9) + 50, y: -size.height / 2.5), name: "controleRight", scale: 3.0)
+        addButton(button: buttonRight, position: CGPoint(x: -510, y: -302), name: "controleRight", scale: 0.9)
         
-        addButton(button: background, position: CGPoint(x: -(size.width / 2.5) + 50, y: -size.height / 2.5), name: "controle", scale: 2.0)
+//        addButton(button: background, position: CGPoint(x: -(size.width / 2.5) + 50, y: -size.height / 2.5), name: "controle", scale: 2.0)
         
 //        addButton(button: buttonX, position: CGPoint(x: (size.width / 3), y: -size.height / 4 - 50), name: "X", scale: 0.40)
 //
