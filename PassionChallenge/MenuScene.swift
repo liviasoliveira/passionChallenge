@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import GameplayKit
+
 class MenuScene: SKScene{
     
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD")
@@ -16,21 +17,21 @@ class MenuScene: SKScene{
     let playButton = SKSpriteNode()
     let playText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
     let logoText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
-    let backgroundImage = SKSpriteNode(imageNamed: "ceuNeon")
-    let odaraImage = SKSpriteNode(imageNamed: "Odara")
+    let backgroundImage = SKSpriteNode(imageNamed: "menuAsset 2certo")
+    //let odaraImage = SKSpriteNode(imageNamed: "menuAsset 2certo")
     
     override func didMove(to view: SKView) {
         //setupButton()
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        backgroundImage.size = CGSize(width: 1024, height: 768)
+        backgroundImage.size = CGSize(width: 733, height: 414)
         backgroundImage.zPosition = -1
         self.addChild(backgroundImage)
         
-        odaraImage.size = CGSize(width: 60, height: 60)
-        odaraImage.zPosition = 1
-        self.addChild(odaraImage)
+        //odaraImage.size = CGSize(width: 60, height: 60)
+        //odaraImage.zPosition = 1
+        //self.addChild(odaraImage)
         
         logoText.text = "Odara"
         logoText.position = CGPoint(x: 0, y: 100)
@@ -63,7 +64,8 @@ class MenuScene: SKScene{
             let location = touch.location(in: self)
             let nodeTouched = atPoint(location)
             if nodeTouched.name == "PlayBtn"{
-               changeScene()
+                self.view?.presentScene(CustomizationScene(size: self.size))
+                //changeScene()
                 
             }
         }
@@ -71,20 +73,20 @@ class MenuScene: SKScene{
         
     }
     
-    func changeScene(){
-        if let scene = GKScene(fileNamed: "GameScene") {
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! PastelScene? {
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                let myTransition = SKTransition.fade(withDuration: 0.5)
-                self.view!.presentScene(sceneNode, transition: myTransition)
-            }
-        }
-        //let sceneToMoveTo = PastelScene()
-    }
+//    func changeScene(){
+//        if let scene = GKScene(fileNamed: "GameScene") {
+//            // Get the SKScene from the loaded GKScene
+//            if let sceneNode = scene.rootNode as! PastelScene? {
+//                // Copy gameplay related content over to the scene
+//                sceneNode.entities = scene.entities
+//                sceneNode.graphs = scene.graphs
+//                // Set the scale mode to scale to fit the window
+//                sceneNode.scaleMode = .aspectFill
+//                let myTransition = SKTransition.fade(withDuration: 0.5)
+//                self.view!.presentScene(sceneNode, transition: myTransition)
+//            }
+//        }
+//        //let sceneToMoveTo = PastelScene()
+//    }
 }
 
