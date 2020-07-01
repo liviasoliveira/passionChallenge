@@ -4,6 +4,7 @@ import GameplayKit
 struct ColliderType {
     static let PLAYER : UInt32 = 0x1 << 0
     static let GROUND : UInt32 = 0x1 << 1
+    static let ITEM: UInt32 = 0x1 << 2
 }
 
 class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
@@ -17,6 +18,12 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             } else if let player = contact.bodyB.node as? CharacterNode {
                 player.grounded = true
             }
+        }
+        
+        let collisionItem: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        if collisionItem == ColliderType.PLAYER | ColliderType.ITEM {
+            print("colidiu Ojus")
         }
     }
 }
