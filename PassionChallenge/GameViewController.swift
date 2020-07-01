@@ -14,14 +14,21 @@ class GameViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+//        let menuScene = MenuScene()
+//        let skView = self.view as! SKView
+//        skView.ignoresSiblingOrder = true
+//        menuScene.size = view.bounds.size
+//        skView.presentScene(menuScene)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let menuScene = MenuScene()
         let skView = self.view as! SKView
         skView.ignoresSiblingOrder = true
         menuScene.size = view.bounds.size
         skView.presentScene(menuScene)
-        
     }
-    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content

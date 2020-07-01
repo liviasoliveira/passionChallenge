@@ -15,9 +15,9 @@ class MenuScene: SKScene{
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD")
     let menuScene = SKScene(size: CGSize(width: 480, height: 320))
     let playButton = SKSpriteNode()
-    let playText = SKLabelNode(fontNamed: "SF Compact Display")
-    //let logoText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
-    let backgroundImage = SKSpriteNode(imageNamed: "MenuBackground")
+    let playText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    let logoText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    let backgroundImage = SKSpriteNode(imageNamed: "menuAsset 2certo")
     //let odaraImage = SKSpriteNode(imageNamed: "menuAsset 2certo")
     
     override func didMove(to view: SKView) {
@@ -33,31 +33,29 @@ class MenuScene: SKScene{
         //odaraImage.zPosition = 1
         //self.addChild(odaraImage)
         
-//        logoText.text = "Odara"
-//        logoText.position = CGPoint(x: 0, y: 100)
-//        logoText.fontSize = 60
-//        self.addChild(logoText)
+        logoText.text = "Odara"
+        logoText.position = CGPoint(x: 0, y: 100)
+        logoText.fontSize = 60
+        self.addChild(logoText)
         
-        //playButton.texture = textureAtlas.textureNamed("button")
-        playButton.run(SKAction.setTexture(SKTexture.init(imageNamed: "BotaoConhecer")))
+        playButton.texture = textureAtlas.textureNamed("button")
         playButton.name = "PlayBtn"
-        playButton.size = CGSize(width: 295, height: 90)
-        playButton.zPosition = 0
-        playButton.position = CGPoint(x: frame.midX, y: -15)
+        playButton.size = CGSize(width: 295, height: 76)
+        playButton.zPosition = 1
+        playButton.position = CGPoint(x: frame.midX, y: -100)
         self.addChild(playButton)
         
-        playText.text = "Conhecer"
-        playText.fontColor = UIColor.black
+        playText.text = "Play Game"
         playText.verticalAlignmentMode = .center
-        playText.position = CGPoint(x: 13, y: 0)
-        playText.fontSize = 35
+        playText.position = CGPoint(x: 0, y: -60)
+        playText.fontSize = 40
         playText.name = "PlayBtn"
-        playText.zPosition = 1
+        playText.zPosition = 5
         playButton.addChild(playText)
         
         
-//        let pulseAction = SKAction.sequence([SKAction.fadeAlpha(to: 0.5, duration: 0.9), SKAction.fadeAlpha(to: 1, duration: 0.9)])
-//        playText.run(SKAction.repeatForever(pulseAction))
+        let pulseAction = SKAction.sequence([SKAction.fadeAlpha(to: 0.5, duration: 0.9), SKAction.fadeAlpha(to: 1, duration: 0.9)])
+        playText.run(SKAction.repeatForever(pulseAction))
         
     }
     
@@ -66,7 +64,7 @@ class MenuScene: SKScene{
             let location = touch.location(in: self)
             let nodeTouched = atPoint(location)
             if nodeTouched.name == "PlayBtn"{
-                self.view?.presentScene(Story1Scene(size: self.size))
+                self.view?.presentScene(CustomizationScene(size: self.size))
                 //changeScene()
                 
             }

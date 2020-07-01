@@ -12,22 +12,22 @@ import GameplayKit
 
 
 class Story1Scene: SKScene{
-    let story1Scene = SKScene(size: CGSize(width: 733, height: 414))
+    let story1Scene = SKScene(size: CGSize(width: 480, height: 320))
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD1")
-    let backgroundImageS1 = SKSpriteNode(imageNamed: "Story1")
-    //let story1Text = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    let backgroundImageS1 = SKSpriteNode(imageNamed: "ceuNeon")
+    let story1Text = SKLabelNode(fontNamed: "AvenirNext-Heavy")
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        backgroundImageS1.size = CGSize(width: 733, height: 414)
+        backgroundImageS1.size = CGSize(width: 1024, height: 768)
         backgroundImageS1.zPosition = -1
         self.addChild(backgroundImageS1)
         
-//        story1Text.text = "Texto história 1"
-//        story1Text.position = CGPoint(x: 0, y: 100)
-//        story1Text.fontSize = 60
-//        self.addChild(story1Text)
+        story1Text.text = "Texto história 1"
+        story1Text.position = CGPoint(x: 0, y: 100)
+        story1Text.fontSize = 60
+        self.addChild(story1Text)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
