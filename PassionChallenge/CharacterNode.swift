@@ -31,13 +31,13 @@ class CharacterNode: SKSpriteNode{
     
     var walkSpeed: CGFloat = 5
     
-        var stateMachine: GKStateMachine?
+    var stateMachine: GKStateMachine?
     
-        func setUpStateMachine(){
-            let normalState = NormalState(with: self)
-            stateMachine = GKStateMachine(states: [normalState])
-            stateMachine?.enter(NormalState.self)
-        }
+    func setUpStateMachine(){
+        let normalState = NormalState(with: self)
+        stateMachine = GKStateMachine(states: [normalState])
+        stateMachine?.enter(NormalState.self)
+    }
     
     func creatPhysic() {
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 35, height: 80), center: CGPoint(x: 0, y: -10))
@@ -49,6 +49,6 @@ class CharacterNode: SKSpriteNode{
         physicsBody?.collisionBitMask = ColliderType.GROUND
     }
     
-    }
-    
+}
+
 
