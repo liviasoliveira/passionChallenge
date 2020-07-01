@@ -38,7 +38,7 @@ class CharacterNode: SKSpriteNode{
         stateMachine = GKStateMachine(states: [normalState])
         stateMachine?.enter(NormalState.self)
     }
-    
+
     func creatPhysic() {
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 35, height: 80), center: CGPoint(x: 0, y: -10))
         physicsBody?.affectedByGravity = true
