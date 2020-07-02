@@ -134,11 +134,6 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
         okButton.addChild(okText)
     }
     
-    //    func alterarNome(nome: UILabel){
-    //        nome.text = nomeField
-    //        print(nomeField)
-    //}
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         myField.resignFirstResponder()
         for touch in (touches){
@@ -149,7 +144,7 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
                 nome.text = nomeField
                 self.view?.presentScene(WelcomeScene(size: self.size))
                 
-                //alterarNome(nome: <#T##UILabel#>)
+             
                 
                 
             }
