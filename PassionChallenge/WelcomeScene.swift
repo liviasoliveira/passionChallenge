@@ -14,7 +14,8 @@ import UIKit
 var nome = SKLabelNode(fontNamed: "SF Compact Display")
 
 class WelcomeScene: SKScene {
-    
+    let welcomeScene = SKScene(size: CGSize(width: 896, height: 414))
+
     let backgroundImageW = SKSpriteNode(imageNamed: "WelcomeImage")
     let okButton = SKSpriteNode()
     let okText = SKLabelNode(fontNamed: "SF Compact Display")
@@ -31,7 +32,7 @@ class WelcomeScene: SKScene {
 //        nome.fontColor = UIColor.black
 //        self.addChild(nome)
         
-        backgroundImageW.size = CGSize(width: 733, height: 414)
+        backgroundImageW.size = CGSize(width: 896, height: 414)
         backgroundImageW.zPosition = -1
         self.addChild(backgroundImageW)
         
@@ -39,7 +40,7 @@ class WelcomeScene: SKScene {
         okButton.name = "OkBtn"
         okButton.size = CGSize(width: 100, height: 70)
         okButton.zPosition = 0
-        okButton.position = CGPoint(x: 270, y: -145)
+        okButton.position = CGPoint(x: 310, y: -145)
         self.addChild(okButton)
         
         okText.text = "OK"

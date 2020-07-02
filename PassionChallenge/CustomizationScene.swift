@@ -17,7 +17,7 @@ var nomeField: String!
 
 class CustomizationScene: SKScene, UITextFieldDelegate{
     
-    let customizationScene = SKScene(size: CGSize(width: 733, height: 414))
+    let customizationScene = SKScene(size: CGSize(width: 896, height: 414))
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD1")
     let setaButton = SKSpriteNode()
     let setaButton1 = SKSpriteNode()
@@ -29,7 +29,7 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
     let elusButton = SKSpriteNode()
     let elusText = SKLabelNode(fontNamed: "SF Compact Display")
     let okText = SKLabelNode(fontNamed: "SF Compact Display")
-    let backgroundImageC = SKSpriteNode(imageNamed: "CustomizationImage")
+    let backgroundImageC = SKSpriteNode(imageNamed: "CImage")
     let personagemImage = SKSpriteNode(imageNamed: "Personagem")
     
     override func didMove(to view: SKView) {
@@ -44,7 +44,7 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
         self.view!.addSubview(myField)
         
         
-        backgroundImageC.size = CGSize(width: 733, height: 414)
+        backgroundImageC.size = CGSize(width: 896, height: 414)
         backgroundImageC.zPosition = -1
         self.addChild(backgroundImageC)
         
@@ -122,7 +122,7 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
         okButton.name = "JogarBtn"
         okButton.size = CGSize(width: 110, height: 65)
         okButton.zPosition = 0
-        okButton.position = CGPoint(x: 270 , y: -145)
+        okButton.position = CGPoint(x: 300 , y: -145)
         self.addChild(okButton)
         
         okText.text = "Jogar"

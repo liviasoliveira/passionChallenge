@@ -12,9 +12,9 @@ import GameplayKit
 
 
 class Story3Scene: SKScene{
-    let story3Scene = SKScene(size: CGSize(width: 733, height: 414))
+    let story3Scene = SKScene(size: CGSize(width: 896, height: 414))
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD1")
-    let backgroundImageS3 = SKSpriteNode(imageNamed: "Story3")
+    let backgroundImageS3 = SKSpriteNode(imageNamed: "S3Image")
     let avancarButton = SKSpriteNode()
     let avancarText = SKLabelNode(fontNamed: "SF Compact Display")
     //let story3Text = SKLabelNode(fontNamed: "AvenirNext-Heavy")
@@ -22,7 +22,7 @@ class Story3Scene: SKScene{
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        backgroundImageS3.size = CGSize(width: 733, height: 414)
+        backgroundImageS3.size = CGSize(width: 896, height: 414)
         backgroundImageS3.zPosition = -1
         self.addChild(backgroundImageS3)
         

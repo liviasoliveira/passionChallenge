@@ -12,15 +12,15 @@ import GameplayKit
 
 
 class Story2Scene: SKScene{
-    let story2Scene = SKScene(size: CGSize(width: 733, height: 414))
+    let story2Scene = SKScene(size: CGSize(width: 896, height: 414))
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD1")
-    let backgroundImageS2 = SKSpriteNode(imageNamed: "Story2")
+    let backgroundImageS2 = SKSpriteNode(imageNamed: "S2Image")
     //let story2Text = SKLabelNode(fontNamed: "AvenirNext-Heavy")
     
     override func didMove(to view: SKView) {
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        backgroundImageS2.size = CGSize(width: 733, height: 414)
+        backgroundImageS2.size = CGSize(width: 896, height: 414)
         backgroundImageS2.zPosition = -1
         self.addChild(backgroundImageS2)
         

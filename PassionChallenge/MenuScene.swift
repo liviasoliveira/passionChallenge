@@ -13,11 +13,11 @@ import GameplayKit
 class MenuScene: SKScene{
     
     let textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "HUD")
-    let menuScene = SKScene(size: CGSize(width: 480, height: 320))
+    let menuScene = SKScene(size: CGSize(width: 896, height: 414))
     let playButton = SKSpriteNode()
     let playText = SKLabelNode(fontNamed: "SF Compact Display")
     //let logoText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
-    let backgroundImage = SKSpriteNode(imageNamed: "MenuBackground")
+    let backgroundImage = SKSpriteNode(imageNamed: "MImage")
     //let odaraImage = SKSpriteNode(imageNamed: "menuAsset 2certo")
     
     override func didMove(to view: SKView) {
@@ -25,7 +25,7 @@ class MenuScene: SKScene{
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        backgroundImage.size = CGSize(width: 733, height: 414)
+        backgroundImage.size = CGSize(width: 896, height: 414)
         backgroundImage.zPosition = -1
         self.addChild(backgroundImage)
         
