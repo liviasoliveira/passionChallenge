@@ -47,6 +47,7 @@ class CharacterNode: SKSpriteNode{
         physicsBody?.friction = 0.0
         physicsBody?.categoryBitMask = ColliderType.PLAYER
         physicsBody?.collisionBitMask = ColliderType.GROUND
+        physicsBody?.contactTestBitMask = ColliderType.ITEM
     }
     
 }

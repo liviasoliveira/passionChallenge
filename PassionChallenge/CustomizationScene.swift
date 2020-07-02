@@ -98,7 +98,6 @@ class CustomizationScene: SKScene, UITextFieldDelegate{
                 self.view?.presentScene(sceneNode, transition: myTransition)
             }
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

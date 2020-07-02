@@ -7,7 +7,7 @@ struct ColliderType {
     static let ITEM: UInt32 = 0x1 << 2
 }
 
-class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
+extension PastelScene: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         let collision: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
@@ -21,10 +21,12 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
         }
         
         let collisionItem: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
+
         if collisionItem == ColliderType.PLAYER | ColliderType.ITEM {
             print("colidiu Ojus")
+            self.view?.presentScene(ThanksScene(size: self.size))
         }
     }
 }
+
 

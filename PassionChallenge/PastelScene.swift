@@ -5,17 +5,17 @@
 //  Created by Lívia Silva Oliveira on 18/06/20.
 //  Copyright © 2020 Lívia Silva Oliveira. All rights reserved.
 //
-
 import SpriteKit
 import GameplayKit
 
 class PastelScene: SKScene {
     
+    
     var entities = [GKEntity]()
     var graphs = [String: GKGraph]()
     var lastUpdateTime: TimeInterval = 0
-    var physicsDelegate = PhysicsDetection()
     var player: CharacterNode?
+    
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -85,6 +85,7 @@ class PastelScene: SKScene {
                 player?.creatPhysic()
                 
             }
+            
             let entity = GKEntity()
             let nodeComponent : GKSKNodeComponent = GKSKNodeComponent(node:thePlayer)
             let component: PlayerControlComponent = PlayerControlComponent()
@@ -135,11 +136,8 @@ class PastelScene: SKScene {
             giveTileMapPhysicsBody(map: tilemap5)
         }
         
-        
-        
-        self.physicsWorld.contactDelegate = physicsDelegate
+        self.physicsWorld.contactDelegate = self
     }
-    
     
     //TileMap
     func giveTileMapPhysicsBody(map: SKTileMapNode) {
@@ -187,6 +185,7 @@ class PastelScene: SKScene {
             }
         }
     }
+    
     
     //    func touchDown(atPoint pos : CGPoint) {
     //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
