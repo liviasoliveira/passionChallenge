@@ -15,6 +15,7 @@
 		506A3B4424AA3AE000063F37 /* Story2Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A3B4324AA3AE000063F37 /* Story2Scene.swift */; };
 		506A3B4824AA3C0C00063F37 /* ThanksScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A3B4724AA3C0C00063F37 /* ThanksScene.swift */; };
 		506A3B4A24AA647800063F37 /* Story3Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506A3B4924AA647800063F37 /* Story3Scene.swift */; };
+		507BBB8D24AD529B006C8EBD /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507BBB8C24AD529B006C8EBD /* WelcomeScene.swift */; };
 		50FF950824A213DE00DDC975 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FF950724A213DE00DDC975 /* MenuScene.swift */; };
 		50FF950A24A2146200DDC975 /* CustomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FF950924A2146200DDC975 /* CustomizationScene.swift */; };
 		76249485249BC9C900D40AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76249484249BC9C900D40AA8 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		506A3B4324AA3AE000063F37 /* Story2Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story2Scene.swift; sourceTree = "<group>"; };
 		506A3B4724AA3C0C00063F37 /* ThanksScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksScene.swift; sourceTree = "<group>"; };
 		506A3B4924AA647800063F37 /* Story3Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story3Scene.swift; sourceTree = "<group>"; };
+		507BBB8C24AD529B006C8EBD /* WelcomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
 		50FF950724A213DE00DDC975 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		50FF950924A2146200DDC975 /* CustomizationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationScene.swift; sourceTree = "<group>"; };
 		76249481249BC9C900D40AA8 /* Odaras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Odaras.app; path = PassionChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				7624949C249BCC6200D40AA8 /* CharacterNode.swift */,
 				50FF950724A213DE00DDC975 /* MenuScene.swift */,
 				50FF950924A2146200DDC975 /* CustomizationScene.swift */,
+				507BBB8C24AD529B006C8EBD /* WelcomeScene.swift */,
 				506A3B4124AA3AB500063F37 /* Story1Scne.swift */,
 				506A3B4324AA3AE000063F37 /* Story2Scene.swift */,
 				506A3B4924AA647800063F37 /* Story3Scene.swift */,
@@ -239,6 +242,7 @@
 				104394F824A53050005237DF /* AnimationComponent.swift in Sources */,
 				7624949D249BCC6200D40AA8 /* CharacterNode.swift in Sources */,
 				7624948D249BC9C900D40AA8 /* GameViewController.swift in Sources */,
+				507BBB8D24AD529B006C8EBD /* WelcomeScene.swift in Sources */,
 				506A3B4224AA3AB500063F37 /* Story1Scne.swift in Sources */,
 				76249485249BC9C900D40AA8 /* AppDelegate.swift in Sources */,
 			);

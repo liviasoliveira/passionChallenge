@@ -186,6 +186,11 @@ class PastelScene: SKScene {
                 }
             }
         }
+//        func changeScene(){
+//            if let collisionOjus = childNode(withName: "Ojus") {
+//                collisionOjus.physicsBody?.body
+//                   }
+//        }
     }
     
     //    func touchDown(atPoint pos : CGPoint) {
